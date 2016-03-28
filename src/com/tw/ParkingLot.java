@@ -1,17 +1,21 @@
+package com.tw;
+
+import com.tw.observers.Observer;
+
 import java.util.ArrayList;
 
 public class ParkingLot {
 
     private final int capacity;
-    private ArrayList<Car> listOfCars = new ArrayList<>();
+    private ArrayList<Object> listOfCars = new ArrayList<>();
     private ArrayList<Observer> observers = new ArrayList<>();
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
     }
 
-    public void addCar(Car car) {
-        listOfCars.add(car);
+    public void addCar(Object vehicle) {
+        listOfCars.add(vehicle);
         notifyAllObservers();
     }
     public void  addObsever(Observer observer){

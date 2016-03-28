@@ -1,14 +1,13 @@
+import com.tw.ParkingLot;
+import com.tw.observers.CivicBody;
 import org.junit.Assert;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class CivicBodyTest {
     @org.testng.annotations.Test
     public void should_collect_tax_when_a_lot_is_80_percent_full() {
         ParkingLot parkingLotOne = new ParkingLot(1);
         CivicBody civicBody = new CivicBody();
-        Car carOne = new Car();
+        Object carOne = new Object();
         parkingLotOne.addCar(carOne);
 
         Assert.assertTrue(civicBody.isTaxable(parkingLotOne.getSize(),parkingLotOne.sizeOfParking()));
@@ -18,7 +17,7 @@ public class CivicBodyTest {
         ParkingLot parkingLotOne = new ParkingLot(10);
         CivicBody civicBody = new CivicBody();
 
-        Car carOne = new Car();
+        Object carOne = new Object();
         parkingLotOne.addCar(carOne);
 
         Assert.assertFalse(civicBody.isTaxable(parkingLotOne.getSize(),parkingLotOne.sizeOfParking()));

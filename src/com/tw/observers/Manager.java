@@ -1,4 +1,6 @@
-public class Manager implements Observer  {
+package com.tw.observers;
+
+public class Manager implements Observer {
 
     public boolean isTraineeAssignable(int capacity,int occupiedSize){
         return occupiedSize>=(0.8*capacity);

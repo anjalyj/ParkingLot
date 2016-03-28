@@ -1,5 +1,8 @@
+package com.tw.observers;
+
+import com.tw.ParkingLot;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Assistant extends Attendant implements Observer {
 
