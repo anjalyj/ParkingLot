@@ -30,20 +30,19 @@ public class Attendant implements Observer{
         return parkingLotsInformation;
     }
 
+
+
+    public boolean isPromotable(int capacity,int occupiedSize) {
+        return occupiedSize<=(0.2*capacity);
+    }
+
     @Override
-    public HashMap<ParkingLot, Integer> update() {
-        return getParkingLotInformation();
+    public void update(int capacity, int occupiedSize) {
+        if(isPromotable(capacity,occupiedSize)) {
+            promoteParkingLot();
+        }
     }
 
-    public boolean isPromotable(ParkingLot parkingLotOne) {
-        return parkingLotOne.sizeOfParking()<=(0.2*parkingLotOne.getSize());
+    private void promoteParkingLot() {
     }
-
-//    @Override
-//    public void update() {
-//        setPromote();
-//    }
-//
-//    private void setPromote() {
-//    }
 }

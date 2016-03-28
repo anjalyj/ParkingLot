@@ -5,17 +5,17 @@ public class ParkingLot {
     private final int capacity;
     private ArrayList<Car> listOfCars = new ArrayList<>();
     private ArrayList<Observer> observers = new ArrayList<>();
-    private int size;
 
     public ParkingLot(int capacity) {
         this.capacity = capacity;
-        this.observers=observers;
     }
 
     public void addCar(Car car) {
         listOfCars.add(car);
-        if(sizeOfParking()<=(0.2*getSize()) || sizeOfParking()>=(0.8*getSize()));
-            notifyAllObservers();
+        notifyAllObservers();
+    }
+    public void  addObsever(Observer observer){
+        observers.add(observer);
     }
 
     public boolean isFull() {
@@ -24,9 +24,10 @@ public class ParkingLot {
 
     public void notifyAllObservers(){
         for (Observer observer : observers) {
-            observer.update();
+            observer.update(getSize(),sizeOfParking());
         }
     }
+
     public int sizeOfParking(){
         return listOfCars.size();
     }

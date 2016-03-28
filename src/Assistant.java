@@ -7,9 +7,4 @@ public class Assistant extends Attendant implements Observer {
         super(parkingLots);
     }
 
-    @Override
-    public HashMap<ParkingLot, Integer> update() {
-//        return getParkingLotInformation();
-        return null;
-    }
 }

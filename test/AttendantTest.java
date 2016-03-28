@@ -8,18 +8,18 @@ import static org.junit.Assert.*;
 public class AttendantTest {
     ArrayList<Observer> observers = new ArrayList<>();
 
-    @Before
-    public void setUp() throws Exception {
-        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLotOne = new ParkingLot(1);
-        ParkingLot parkingLotTwo = new ParkingLot(2);
-        parkingLots.add(parkingLotOne);
-        parkingLots.add(parkingLotTwo);
-        observers.add(new Attendant(parkingLots));
-        observers.add(new Manager());
-        observers.add(new Assistant(parkingLots));
-
-    }
+//    @Before
+//    public void setUp() throws Exception {
+//        ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+//        ParkingLot parkingLotOne = new ParkingLot(1);
+//        ParkingLot parkingLotTwo = new ParkingLot(2);
+//        parkingLots.add(parkingLotOne);
+//        parkingLots.add(parkingLotTwo);
+//        observers.add(new Attendant(parkingLots));
+//        observers.add(new Manager());
+//        observers.add(new Assistant(parkingLots));
+//
+//    }
 
     @org.junit.Test
     public void should_be_able_to_add_a_car_in_parking_lot() {
@@ -92,10 +92,13 @@ public class AttendantTest {
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLotOne = new ParkingLot(10);
         parkingLots.add(parkingLotOne);
+
         Attendant attendant = new Attendant(parkingLots);
+        parkingLotOne.addObsever(attendant);
         Car carOne = new Car();
         attendant.parkCar(carOne);
-        assertTrue(attendant.isPromotable(parkingLotOne));
+
+        assertTrue(attendant.isPromotable(10,1));
 
 
     }

@@ -1,14 +1,16 @@
-import java.util.HashMap;
+public class Manager implements Observer  {
 
-public class Manager implements Observer {
+    public boolean isTraineeAssignable(int capacity,int occupiedSize){
+        return occupiedSize>=(0.8*capacity);
+    }
 
     @Override
-    public HashMap<ParkingLot, Integer> update() {
-//        return null;
-        return null;
+    public void update(int capacity, int occupiedSize) {
+        if(isTraineeAssignable(capacity,occupiedSize))
+            assignTrainee();
     }
-    public boolean isTraineeAssignable(ParkingLot parkingLot){
-        return parkingLot.sizeOfParking()<=(0.8*parkingLot.getSize());
+
+    private void assignTrainee() {
     }
 }
 
